@@ -34,10 +34,9 @@
           copyLibs = true;
           copyBins = false;
           release = true;
-          LIBCLANG_PATH = pkgs.lib.makeLibraryPath [ pkgs.llvmPackages_latest.libclang.lib ];
+          LIBCLANG_PATH = pkgs.lib.makeLibraryPath [ pkgs.llvmPackages.libclang.lib ];
           buildInputs = with pkgs; [
             clang
-            pkg-config
           ];
           BINDGEN_EXTRA_CLANG_ARGS = (
             builtins.map (a: ''-I"${a}/include"'') [
